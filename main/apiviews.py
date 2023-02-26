@@ -9,7 +9,6 @@ from rest_framework import generics
 
 from .models import Lesson, Profile, Note, Task
 from .serializers import LessonSerializer, UserSerializer, ProfileSerializer, NoteSerializer
-from .day_check import date_res
 from .theme_check import theme_res
 from .task_update import update
 from .gtodo import get_to_do, get_tasks
@@ -51,23 +50,6 @@ class NoteList(APIView): #АПИ для идей
         Note.objects.get(pk=id).delete()
         return Response(status=status.HTTP_200_OK)
 
-
-class Statistic(APIView):#АПИ для статистики
-    def get(self, request):
-        user = request.user
-        p = Profile.objects.get(user=user)
-        update(p)
-        days = date_res(p)
-        compl = p.completed_tasks.count()
-        tried = p.wa_tasks.count()
-        theme_prog = theme_res(p)
-        data = {
-            "completed": compl,
-            "tried": tried,
-            "day_statistic": days,
-            "theme_statistic": theme_prog,
-        }
-        return JsonResponse(data)
 
 class ToDo(APIView):#АПИ для задач
     def get(self, request):
@@ -119,7 +101,6 @@ class UserCreate(APIView): #АПИ для создания пользовате�
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 
