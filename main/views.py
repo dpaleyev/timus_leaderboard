@@ -2,17 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import Profile
-from .theme_check import theme_res2
+from .task_update import *
 
 def leaderboard(request):
     data = {}
     data['test'] = []
     for i in Profile.objects.all():
-        t = theme_res2(i)
-        cnt = 0
-        for j in range(len(t)):
-            cnt += t[j]['compl']
-        data['test'].append([cnt, str(i.user), int(i.user_id)])
+        update(i)
+        data['test'].append([len(i.completed_tasks.values_list()), str(i.user), int(i.user_id)])
     data['test'].sort(reverse=True)
 
     return render(request, "index.html", context=data)
