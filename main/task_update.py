@@ -13,8 +13,11 @@ def update(prof):#обновление выполненных и невыпол�
 
     for name in nameList:
         num = int(name.get_text()[:4])
-        t = Task.objects.get(num=num)
-        prof.completed_tasks.add(t)
+        try:
+            t = Task.objects.get(num=num)
+            prof.completed_tasks.add(t)
+        except Exception:
+            pass
 
     nameList = bsObj.findAll("td", {"class":"tried"})
 
