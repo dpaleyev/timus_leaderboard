@@ -26,4 +26,14 @@ def user_stats(request, name):
             data['name'] = str(i.user)
     return render(request, "profile.html", context=data)
 
+
+def reg_req(request):
+    if (request.method == "POST"):
+        form = NewUserForm(request.POST)
+        if (form.is_valid()):
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    form = NewUserForm()
+    return render(request, "reg.html", context={'reg_form': form})
 # Create your views here.
