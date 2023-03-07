@@ -1,0 +1,78 @@
+body {
+    background-image: url("back2.jpg");
+    background-size: 20%;
+    color: black;
+}
+.back {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vw;
+    background-color: #474350;
+    width: 40vw;
+    height: auto;
+    padding-top: 0.5vw;
+    padding-bottom: 5vh;
+    margin-bottom: 3vh;
+    border-radius: 10px;
+}
+#name #cnt {
+    margin: 10px;
+}
+#name {
+    width: auto;
+    display: flex;
+    font-weight: bold;
+}
+#cnt {
+    width: auto;
+    text-align: right;
+    position: relative;
+}
+a {
+    color: black;
+    font-style: small;
+}
+.pos {
+    font-size: 1vw;
+    padding: 0.8vw;
+    margin-top: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+    background-color: #fecdaa;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+    border-color:#fecdaa;
+}
+h1 {
+    font-size: 1.5vw;
+    padding-top: 0vw;
+    padding-bottom: 1.5vw;
+    text-align: center;
+    color: white;
+}
+.pos:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #ffe4c4;
+}
+.reglog {
+    display: block;
+    position: relative;
+    font-size: 0.8vw;
+    padding: 3px;
+    text-align: center;
+    background-color: #fecdaa;
+    margin: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+#btns {
+    position: relative;
+    margin-left: auto;
+    margin-right: 1vw;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
