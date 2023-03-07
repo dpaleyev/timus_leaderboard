@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.leaderboard),
     path('stats/<int:name>', views.user_stats),
+    path('reg/', views.reg_req, name="reg"),
 ]
