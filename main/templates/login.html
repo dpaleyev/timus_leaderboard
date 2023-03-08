@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css">
+    <style>
+        #content {
+            color: white;
+            margin-top: 1vw;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            background-color: #fecdaa;
+        }
+    </style>
+</head>
+
+<div class="back">
+    <div id="content">
+        <h1>Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ log_form }}
+            <br> <br>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <!-- <div>{{log_form.errors}}</div> -->
+    </div>
+    
+</div>
