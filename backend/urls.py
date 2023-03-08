@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from main import views
 from django.urls import include, re_path
+from rest_framework.authtoken import views as rfviews
+from main.apiviews import UserCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.leaderboard),
     path('stats/<int:name>', views.user_stats),
     path('reg/', views.reg_req, name="reg"),
+    path('logout/', views.logout_req, name="logout"),
+    path('login/', views.log_req, name="login"),
 ]
